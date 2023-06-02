@@ -1,0 +1,14 @@
+다른파일넘어간것은 대문자!!!
+
+물리 Power
+마법 Magic
+물방 Defence
+마방 Anti
+
+전사 Worrior
+궁수 Archer
+법사 Mage
+
+적전사 W_Enemy
+적궁수 A_Enemy
+적법사 M_Enemy
