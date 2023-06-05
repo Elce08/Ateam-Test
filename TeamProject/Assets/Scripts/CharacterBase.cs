@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
-    //데이지 애니매이션
+    //데미지 애니매이션
     GameObject Hit;
     //최종 데미지
     float Damage;
@@ -20,10 +20,10 @@ public class CharacterBase : MonoBehaviour
     public float MaxHp = 100f;
     public float MaxMp = 100f;
     //스탯 배수 설정
-    public float StrikeTime;
-    public float IntelligentTime;
-    public float DefenceTime;
-    public float AntiTime;
+    public float StrikeMultiple;
+    public float IntelligentMultiple;
+    public float DefenceMultiple;
+    public float AntiMultiple;
     //치명타 배수
     public float Critical = 2f;
     //임시 데미지 이펙트 시간
@@ -65,8 +65,8 @@ public class CharacterBase : MonoBehaviour
         Strike = 1f;
         Intelligent = 50f;
         Agility = 1f;
-        Defence = 1f * DefenceTime;
-        Anti = 1f * AntiTime;
+        Defence = 1f * DefenceMultiple;
+        Anti = 1f * AntiMultiple;
         Hit = transform.GetChild(0).gameObject;
         Hit.SetActive(false);
     }
@@ -79,9 +79,9 @@ public class CharacterBase : MonoBehaviour
     {
         if (Random.Range(0, 100) < Agility)
         {
-            Damage = (Strike * StrikeTime + Intelligent * IntelligentTime) * Critical;
+            Damage = (Strike * StrikeMultiple + Intelligent * IntelligentMultiple) * Critical;
         }
-        else Damage = (Strike * StrikeTime + Intelligent * IntelligentTime);
+        else Damage = (Strike * StrikeMultiple + Intelligent * IntelligentMultiple);
         return Damage;
     }
 
