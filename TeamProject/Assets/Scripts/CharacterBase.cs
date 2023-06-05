@@ -62,6 +62,7 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     protected virtual void Awake()
     {
+        CharacterStats();
         Hit = transform.GetChild(0).gameObject;
         Hit.SetActive(false);
     }
@@ -69,7 +70,7 @@ public class CharacterBase : MonoBehaviour
     /// <summary>
     /// 캐릭터 스탯
     /// </summary>
-    protected virtual void CharacterStats
+    protected virtual void CharacterStats()
     {
         Strike = 1f;
         Intelligent = 50f;
