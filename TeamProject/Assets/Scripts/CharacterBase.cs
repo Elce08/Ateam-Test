@@ -62,13 +62,20 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     protected virtual void Awake()
     {
+        Hit = transform.GetChild(0).gameObject;
+        Hit.SetActive(false);
+    }
+
+    /// <summary>
+    /// Ä³¸¯ÅÍ ½ºÅÈ
+    /// </summary>
+    protected virtual void CharacterStats
+    {
         Strike = 1f;
         Intelligent = 50f;
         Agility = 1f;
         Defence = 1f * DefenceMultiple;
         Anti = 1f * AntiMultiple;
-        Hit = transform.GetChild(0).gameObject;
-        Hit.SetActive(false);
     }
     
     /// <summary>
