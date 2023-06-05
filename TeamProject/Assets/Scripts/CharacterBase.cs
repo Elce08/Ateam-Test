@@ -9,11 +9,11 @@ public class CharacterBase : MonoBehaviour
     //최종 데미지
     float Damage;
     //기본 스탯
-    float Strike;
-    float Intelligent;
-    float Agility;
-    float Defence;
-    float Anti;
+    public float Strike;
+    public float Intelligent;
+    public float Agility;
+    public float Defence;
+    public float Anti;
     float hp;
     float mp;
     //최대 마나체력
@@ -62,7 +62,7 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     protected virtual void Awake()
     {
-        CharacterStats();
+        //CharacterStats();
         Hit = transform.GetChild(0).gameObject;
         Hit.SetActive(false);
     }
@@ -70,14 +70,14 @@ public class CharacterBase : MonoBehaviour
     /// <summary>
     /// 캐릭터 스탯
     /// </summary>
-    protected virtual void CharacterStats()
+    /*protected virtual void CharacterStats()
     {
         Strike = 1f;
         Intelligent = 50f;
         Agility = 1f;
         Defence = 1f * DefenceMultiple;
         Anti = 1f * AntiMultiple;
-    }
+    }*/
     
     /// <summary>
     /// 주는 데미지
