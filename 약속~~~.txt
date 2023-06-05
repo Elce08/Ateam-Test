@@ -1,5 +1,9 @@
 다른파일넘어간것은 대문자!!!
 
+힘   Strike
+지능 Intelligent
+민첩 Agility
+
 물리 Power
 마법 Magic
 물방 Defence
