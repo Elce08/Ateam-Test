@@ -94,7 +94,8 @@ public class Archer : CharacterBase
 
     private void Skill()
     {
-        if (Random.Range(0, 100) < Agility)
+        const int cost = 10;
+        if (MP > cost)
         {
             powershot = (Agility * StrikeMultiple) * Critical;
         }
