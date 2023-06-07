@@ -6,6 +6,8 @@ public class CharacterBase : MonoBehaviour
 {
     //데미지 애니매이션
     GameObject Hit;
+    //적 생성
+    GameObject enemy;
     //최종 데미지
     float Damage;
     //기본 스탯
@@ -56,12 +58,15 @@ public class CharacterBase : MonoBehaviour
             }
         }
     }
+    //적 이름 받기
+    public string enemyName;
     
     /// <summary>
     /// 캐릭터 스탯
     /// </summary>
     protected virtual void Awake()
     {
+        // enemy = find
         //CharacterStats();
         Hit = transform.GetChild(0).gameObject;
         Hit.SetActive(false);
@@ -83,14 +88,14 @@ public class CharacterBase : MonoBehaviour
     /// 주는 데미지
     /// </summary>
     /// <returns>주는 데미지 리턴</returns>
-    protected virtual float Attack()
+    protected virtual void Attack()
     {
         if (Random.Range(0, 100) < Agility)
         {
             Damage = (Strike * StrikeMultiple + Intelligent * IntelligentMultiple) * Critical;
         }
         else Damage = (Strike * StrikeMultiple + Intelligent * IntelligentMultiple);
-        return Damage;
+        //적.getDamage(Damage,0);       // 적에게 데미지 줄때
     }
 
     /// <summary>

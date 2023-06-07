@@ -35,6 +35,33 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Value"",
+                    ""id"": ""8a954d10-ba2c-4655-b5f6-63e39c91d6b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Skill"",
+                    ""type"": ""Value"",
+                    ""id"": ""7f91599c-340c-457c-a1bd-3b20ccf47dc0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ChoiceEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""662e60d1-3f5f-4650-8efc-899b47331139"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -70,6 +97,39 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""NumberPad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93f81fcc-7969-4c20-9897-a52418251cf2"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4fa8ce57-8e09-4aaa-9241-3aab30d46d8a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af8e2c68-cc76-406d-9195-a2a31d1d1456"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChoiceEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -96,6 +156,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_NumberPad = m_Player.FindAction("NumberPad", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
+        m_Player_ChoiceEnemy = m_Player.FindAction("ChoiceEnemy", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -158,11 +221,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_NumberPad;
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Skill;
+    private readonly InputAction m_Player_ChoiceEnemy;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
         public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @NumberPad => m_Wrapper.m_Player_NumberPad;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Skill => m_Wrapper.m_Player_Skill;
+        public InputAction @ChoiceEnemy => m_Wrapper.m_Player_ChoiceEnemy;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -175,6 +244,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @NumberPad.started += instance.OnNumberPad;
             @NumberPad.performed += instance.OnNumberPad;
             @NumberPad.canceled += instance.OnNumberPad;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @Skill.started += instance.OnSkill;
+            @Skill.performed += instance.OnSkill;
+            @Skill.canceled += instance.OnSkill;
+            @ChoiceEnemy.started += instance.OnChoiceEnemy;
+            @ChoiceEnemy.performed += instance.OnChoiceEnemy;
+            @ChoiceEnemy.canceled += instance.OnChoiceEnemy;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -182,6 +260,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @NumberPad.started -= instance.OnNumberPad;
             @NumberPad.performed -= instance.OnNumberPad;
             @NumberPad.canceled -= instance.OnNumberPad;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @Skill.started -= instance.OnSkill;
+            @Skill.performed -= instance.OnSkill;
+            @Skill.canceled -= instance.OnSkill;
+            @ChoiceEnemy.started -= instance.OnChoiceEnemy;
+            @ChoiceEnemy.performed -= instance.OnChoiceEnemy;
+            @ChoiceEnemy.canceled -= instance.OnChoiceEnemy;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -211,5 +298,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnNumberPad(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
+        void OnChoiceEnemy(InputAction.CallbackContext context);
     }
 }

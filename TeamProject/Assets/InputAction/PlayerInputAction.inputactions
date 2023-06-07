@@ -13,6 +13,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Value",
+                    "id": "8a954d10-ba2c-4655-b5f6-63e39c91d6b4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Skill",
+                    "type": "Value",
+                    "id": "7f91599c-340c-457c-a1bd-3b20ccf47dc0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ChoiceEnemy",
+                    "type": "Button",
+                    "id": "662e60d1-3f5f-4650-8efc-899b47331139",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -46,6 +73,39 @@
                     "processors": "",
                     "groups": "Player",
                     "action": "NumberPad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93f81fcc-7969-4c20-9897-a52418251cf2",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fa8ce57-8e09-4aaa-9241-3aab30d46d8a",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af8e2c68-cc76-406d-9195-a2a31d1d1456",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChoiceEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
