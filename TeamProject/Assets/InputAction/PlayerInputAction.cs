@@ -28,15 +28,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ""id"": ""f14dd93b-c118-4f28-b6ec-ab58044b5e09"",
             ""actions"": [
                 {
-                    ""name"": ""NumberPad"",
-                    ""type"": ""Button"",
-                    ""id"": ""2c435ac2-cf16-4af8-9c2d-724d98d518a9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Attack"",
                     ""type"": ""Value"",
                     ""id"": ""8a954d10-ba2c-4655-b5f6-63e39c91d6b4"",
@@ -62,42 +53,36 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Warrior"",
+                    ""type"": ""Button"",
+                    ""id"": ""cae78edb-aab0-4ae4-8bbe-8b840269950f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Archer"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6263ae9-a12c-45e4-84d7-e5acd2af7d2a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mage"",
+                    ""type"": ""Button"",
+                    ""id"": ""9906ff01-4995-4d42-aa1a-2bfddf6a8030"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""aa640971-0d43-44e4-bf45-08a56bbfeedc"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""NumberPad"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""83c5b9a4-6c80-4028-bb24-b249f7be119e"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""NumberPad"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""703b4938-c71a-40a8-a3d6-5cf101ee7a5c"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""NumberPad"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""93f81fcc-7969-4c20-9897-a52418251cf2"",
@@ -130,6 +115,39 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""ChoiceEnemy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f824dec6-528e-4467-aaef-fe2c332d88a4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Warrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d484cae-0791-4d46-bb72-ba7302ae51e7"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Archer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10342097-5f07-4732-9450-de913036a868"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -155,10 +173,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_NumberPad = m_Player.FindAction("NumberPad", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
         m_Player_ChoiceEnemy = m_Player.FindAction("ChoiceEnemy", throwIfNotFound: true);
+        m_Player_Warrior = m_Player.FindAction("Warrior", throwIfNotFound: true);
+        m_Player_Archer = m_Player.FindAction("Archer", throwIfNotFound: true);
+        m_Player_Mage = m_Player.FindAction("Mage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -220,18 +240,22 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_NumberPad;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Skill;
     private readonly InputAction m_Player_ChoiceEnemy;
+    private readonly InputAction m_Player_Warrior;
+    private readonly InputAction m_Player_Archer;
+    private readonly InputAction m_Player_Mage;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
         public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @NumberPad => m_Wrapper.m_Player_NumberPad;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Skill => m_Wrapper.m_Player_Skill;
         public InputAction @ChoiceEnemy => m_Wrapper.m_Player_ChoiceEnemy;
+        public InputAction @Warrior => m_Wrapper.m_Player_Warrior;
+        public InputAction @Archer => m_Wrapper.m_Player_Archer;
+        public InputAction @Mage => m_Wrapper.m_Player_Mage;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,9 +265,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @NumberPad.started += instance.OnNumberPad;
-            @NumberPad.performed += instance.OnNumberPad;
-            @NumberPad.canceled += instance.OnNumberPad;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -253,13 +274,19 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ChoiceEnemy.started += instance.OnChoiceEnemy;
             @ChoiceEnemy.performed += instance.OnChoiceEnemy;
             @ChoiceEnemy.canceled += instance.OnChoiceEnemy;
+            @Warrior.started += instance.OnWarrior;
+            @Warrior.performed += instance.OnWarrior;
+            @Warrior.canceled += instance.OnWarrior;
+            @Archer.started += instance.OnArcher;
+            @Archer.performed += instance.OnArcher;
+            @Archer.canceled += instance.OnArcher;
+            @Mage.started += instance.OnMage;
+            @Mage.performed += instance.OnMage;
+            @Mage.canceled += instance.OnMage;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @NumberPad.started -= instance.OnNumberPad;
-            @NumberPad.performed -= instance.OnNumberPad;
-            @NumberPad.canceled -= instance.OnNumberPad;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -269,6 +296,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @ChoiceEnemy.started -= instance.OnChoiceEnemy;
             @ChoiceEnemy.performed -= instance.OnChoiceEnemy;
             @ChoiceEnemy.canceled -= instance.OnChoiceEnemy;
+            @Warrior.started -= instance.OnWarrior;
+            @Warrior.performed -= instance.OnWarrior;
+            @Warrior.canceled -= instance.OnWarrior;
+            @Archer.started -= instance.OnArcher;
+            @Archer.performed -= instance.OnArcher;
+            @Archer.canceled -= instance.OnArcher;
+            @Mage.started -= instance.OnMage;
+            @Mage.performed -= instance.OnMage;
+            @Mage.canceled -= instance.OnMage;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,9 +333,11 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnNumberPad(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
         void OnChoiceEnemy(InputAction.CallbackContext context);
+        void OnWarrior(InputAction.CallbackContext context);
+        void OnArcher(InputAction.CallbackContext context);
+        void OnMage(InputAction.CallbackContext context);
     }
 }

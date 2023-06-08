@@ -6,15 +6,6 @@
             "id": "f14dd93b-c118-4f28-b6ec-ab58044b5e09",
             "actions": [
                 {
-                    "name": "NumberPad",
-                    "type": "Button",
-                    "id": "2c435ac2-cf16-4af8-9c2d-724d98d518a9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Attack",
                     "type": "Value",
                     "id": "8a954d10-ba2c-4655-b5f6-63e39c91d6b4",
@@ -40,42 +31,36 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Warrior",
+                    "type": "Button",
+                    "id": "cae78edb-aab0-4ae4-8bbe-8b840269950f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Archer",
+                    "type": "Button",
+                    "id": "a6263ae9-a12c-45e4-84d7-e5acd2af7d2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Mage",
+                    "type": "Button",
+                    "id": "9906ff01-4995-4d42-aa1a-2bfddf6a8030",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "aa640971-0d43-44e4-bf45-08a56bbfeedc",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "NumberPad",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83c5b9a4-6c80-4028-bb24-b249f7be119e",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "NumberPad",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "703b4938-c71a-40a8-a3d6-5cf101ee7a5c",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player",
-                    "action": "NumberPad",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "93f81fcc-7969-4c20-9897-a52418251cf2",
@@ -106,6 +91,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChoiceEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f824dec6-528e-4467-aaef-fe2c332d88a4",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Warrior",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d484cae-0791-4d46-bb72-ba7302ae51e7",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Archer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10342097-5f07-4732-9450-de913036a868",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
