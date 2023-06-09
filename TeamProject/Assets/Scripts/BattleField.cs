@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main : MonoBehaviour
+public class BattleField : MonoBehaviour
 {
+    // 변수 만들어서 캐릭터 저장
+    // 
+    public PoolObjectType warriorObj;
+    List<GameObject> objects = new List<GameObject>();
+
     PlayerInputAction choiceCharater;
     int choiceClass = 0;
 
     private void Start()
     {
-        
+         // int EnemyClass = Random.Range(4, 7);
+         // ChoiceClass();
     }
 
     private void Awake()
@@ -36,36 +42,41 @@ public class Main : MonoBehaviour
 
     private void OnWarrior(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        choiceClass = 1;
+        ChoiceClass(1);
     }
 
     private void OnArcher(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        choiceClass = 2;
+        ChoiceClass(2);
     }
     private void OnMage(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        choiceClass = 3;
+        ChoiceClass(3);
     }
 
-    private void ChoiceClass()
+    private void ChoiceClass(int choiceClass)
     {
-        if(choiceClass == 1 )
+        if (choiceClass == 1)
         {
             Debug.Log($"Warrior{choiceClass}");
+            GameObject test = Factory.Inst.GetObject(warriorObj);
+            test.transform.position = transform.position;
+            objects.Add(test);
         }
-        else if(choiceClass == 2 )
+
+        else if (choiceClass == 2)
         {
             Debug.Log($"Archer{choiceClass}");
         }
-        else if(choiceClass == 3 )
+
+        else if (choiceClass == 3)
         {
             Debug.Log($"Mage{choiceClass}");
         }
+
         else
         {
             Debug.Log("캐릭터 재선택");
         }
-
     }
 }
