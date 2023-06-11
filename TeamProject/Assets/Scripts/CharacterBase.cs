@@ -11,11 +11,11 @@ public class CharacterBase : MonoBehaviour
     //최종 데미지
     float Damage;
     //기본 스탯
-    public float Strike;
-    public float Intelligent;
-    public float Agility;
-    public float Defence;
-    public float Anti;
+    public float Strike = 1f;
+    public float Intelligent = 1f;
+    public float Agility = 1f;
+    public float Defence = 1f;
+    public float Anti = 1f;
     float hp;
     float mp;
     //최대 마나체력
@@ -103,7 +103,7 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     /// <param name="getDamage">데미지</param>
     /// <param name="DamageSort">받는 데미지 종류</param>
-    public void getDemage(int getDamage, int DamageSort)
+    public void getDemage(float getDamage, int DamageSort)
     {
         if(DamageSort == 0) HP -= getDamage / Defence;
         else if(DamageSort == 1) HP -= getDamage / Anti;

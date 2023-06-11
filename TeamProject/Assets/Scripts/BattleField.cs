@@ -22,7 +22,7 @@ public class BattleField : MonoBehaviour
     {
         choiceCharater = new PlayerInputAction();
         mage = FindObjectOfType<Mage>();
-        mage.getDemage(5, 0);
+        mage.getDemage(5f, 0);
     }
 
     private void OnEnable()
