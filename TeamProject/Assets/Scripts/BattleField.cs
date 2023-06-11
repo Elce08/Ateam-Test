@@ -8,7 +8,7 @@ public class BattleField : MonoBehaviour
     // 
     public PoolObjectType warriorObj;
     List<GameObject> objects = new List<GameObject>();
-
+    Mage mage;
     PlayerInputAction choiceCharater;
     int choiceClass = 0;
 
@@ -21,6 +21,8 @@ public class BattleField : MonoBehaviour
     private void Awake()
     {
         choiceCharater = new PlayerInputAction();
+        mage = FindObjectOfType<Mage>();
+        mage.getDemage(5, 0);
     }
 
     private void OnEnable()

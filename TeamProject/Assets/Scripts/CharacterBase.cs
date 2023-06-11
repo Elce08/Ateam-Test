@@ -103,10 +103,11 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     /// <param name="getDamage">데미지</param>
     /// <param name="DamageSort">받는 데미지 종류</param>
-    protected virtual void getDemage(float getDamage, int DamageSort)
+    public void getDemage(int getDamage, int DamageSort)
     {
         if(DamageSort == 0) HP -= getDamage / Defence;
         else if(DamageSort == 1) HP -= getDamage / Anti;
+        Debug.Log(HP);
         StartCoroutine(hit());
     }
 
